@@ -73,6 +73,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "UIInput",
+            "id": "143f9b65-fa6e-4020-9071-bd97c8dabd65",
+            "actions": [
+                {
+                    "name": "Shop",
+                    "type": "Button",
+                    "id": "deebe45f-4a9f-4fbf-b066-23dd79991e52",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "60ec3242-fdd7-481a-aa8a-b9f88c625331",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

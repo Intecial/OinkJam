@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GameUSS.uss?fileID=7433441132597879392&amp;guid=c5cb77983e53cc448ab627e705ce391b&amp;type=3#GameUSS"/>
+    <ui:VisualElement name="Root" style="flex-grow: 1;">
+        <ui:VisualElement name="Container" class="container" style="flex-grow: 1; justify-content: flex-end;">
+            <ui:Button text="Button" name="BuyButton"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
