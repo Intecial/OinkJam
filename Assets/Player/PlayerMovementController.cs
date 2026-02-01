@@ -1,10 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    
-    
     private Vector2 moveInput;
     [SerializeField]
     private Transform player;
@@ -12,13 +11,8 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 5f;
     public float rotateSpeed = 720f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-        
-    }
 
+    [SerializeField] private Rigidbody2D rb;
 
     void Update()
     {
@@ -40,7 +34,18 @@ public class PlayerMovementController : MonoBehaviour
     }
 
     void FixedUpdate(){
-        Vector3 movement = new Vector3(moveInput.x,  moveInput.y, 0);
-        player.transform.position += movement * moveSpeed * Time.deltaTime;
+        Vector2 movement = new Vector2(moveInput.x,  moveInput.y);
+        rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * movement);
+    }
+
+    public void StopMovement(){
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("UIInput");
+    }
+
+    public void ResumeMovement()
+    {
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("PlayerMovement");
     }
 }

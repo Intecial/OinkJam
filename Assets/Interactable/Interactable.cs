@@ -1,16 +1,18 @@
+using System;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public abstract void Interact();
+
+    public void DisableInteraction()
     {
-        
+        this.gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EnableInteraction()
     {
+        this.gameObject.layer = LayerMask.NameToLayer("Interactable");
         
     }
 }

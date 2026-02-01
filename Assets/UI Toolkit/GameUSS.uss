@@ -2,4 +2,35 @@
 }
 
 .container {
+    justify-content: center;
+}
+
+.slot-container {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    align-self: flex-end;
+    flex-grow: 0;
+}
+
+.mixing-container {
+    flex-grow: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.slot {
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+}
+
+.font-style {
+}
+
+.font-size {
+    font-size: 32px;
 }

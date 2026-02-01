@@ -1,0 +1,45 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="Slot" src="project://database/Assets/Slot/Slot.uxml?fileID=9197481963319205126&amp;guid=eca062752b261432291fc5649941fa10&amp;type=3#Slot"/>
+    <Style src="project://database/Assets/UI%20Toolkit/GameUSS.uss?fileID=7433441132597879392&amp;guid=c5cb77983e53cc448ab627e705ce391b&amp;type=3#GameUSS"/>
+    <ui:VisualElement style="flex-grow: 1; display: flex;">
+        <ui:VisualElement name="VisualElement" class="container" style="flex-grow: 1;">
+            <ui:VisualElement style="flex-grow: 0;">
+                <ui:VisualElement style="align-self: flex-end;">
+                    <ui:Button text="X" name="CloseButton" class="font-size"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="MixingContainer" class="mixing-container" style="flex-grow: 1;">
+                <ui:VisualElement name="InputSlots" class="slot-container">
+                    <ui:Image source="project://database/Resources/unity_builtin_extra?fileID=10305&amp;guid=0000000000000000f000000000000000&amp;type=0#Default-Checker" class="slot"/>
+                    <ui:Image source="project://database/Resources/unity_builtin_extra?fileID=10305&amp;guid=0000000000000000f000000000000000&amp;type=0#Default-Checker" class="slot"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="ArrowContainer" style="flex-grow: 0; width: 25%;">
+                    <ui:Image source="project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-4521532143779581420&amp;guid=7bc0cc84a165da847ace484a1c90352b&amp;type=3#arrow-right" name="Image" style="flex-grow: 1;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="OutputSlots" class="slot-container">
+                    <ui:Image source="project://database/Resources/unity_builtin_extra?fileID=10305&amp;guid=0000000000000000f000000000000000&amp;type=0#Default-Checker" class="slot"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="mixing-container" style="justify-content: space-around; width: 100%; flex-grow: 1;">
+                <ui:VisualElement style="flex-grow: 1;">
+                    <ui:Label text="Potion" class="font-size" style="align-self: center;"/>
+                    <ui:VisualElement class="mixing-container">
+                        <ui:Instance template="Slot"/>
+                        <ui:Instance template="Slot"/>
+                        <ui:Instance template="Slot"/>
+                        <ui:Instance template="Slot"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1;">
+                    <ui:Label text="Ingredient" class="font-style font-size" style="align-self: center;"/>
+                    <ui:VisualElement class="mixing-container">
+                        <ui:Instance template="Slot"/>
+                        <ui:Instance template="Slot"/>
+                        <ui:Instance template="Slot"/>
+                        <ui:Instance template="Slot"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
