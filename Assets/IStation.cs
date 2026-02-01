@@ -2,6 +2,6 @@
 
 public interface IStation
 {
-    public void InitiateInteraction(PlayerHandController playerHandController);
+    public void InteractStation(PlayerHandController playerHandController);
     
 }

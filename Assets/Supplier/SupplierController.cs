@@ -4,28 +4,18 @@ public class SupplierController : MonoBehaviour, IStation{
 
     [SerializeField] private GameObject prefab;
 
-    public void InitiateInteraction(PlayerHandController playerHandController)
+    public void InteractStation(PlayerHandController playerHandController)
     {
+        if (playerHandController.isHoldingItem())
+        {
+            return;
+        }
         GameObject itemObj = Instantiate(prefab, this.transform.position, Quaternion.identity);
-        playerHandController.PickUpItem(itemObj.GetComponent<ItemController>());
+        bool hasPickUp = itemObj.TryGetComponent<IPickUp>(out var pickUp);
+        if (hasPickUp)
+        {
+            pickUp.PickUp(playerHandController);
+        }
+
     }
-    // [SerializeField] private PlayerHandController playerHandController;
-
-    // public override void Interact()
-    // {
-    //     GameObject itemObj = Instantiate(prefab, this.transform.position, Quaternion.identity);
-    //     playerHandController.PickUpItem(itemObj);
-
-    // }
-
-    // public void StopInteraction()
-    // {
-
-    // }
-
-    // public override void InitiateInteraction(PlayerHandController playerHandController)
-    // {
-    //     GameObject itemObj = Instantiate(prefab, this.transform.position, Quaternion.identity);
-    //     playerHandController.PickUpItem(itemObj);
-    // }
 }

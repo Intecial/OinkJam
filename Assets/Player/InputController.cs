@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour
 {
+    public static event Action OnInteractClicked;
     
     [SerializeField]
     private RaycastHandler raycastHandler;
@@ -18,21 +20,7 @@ public class InputController : MonoBehaviour
         
         if (context.performed)
         {
-            if (playerHandController.isHoldingItem())
-            {
-                if(raycastHandler.GetCollider() != null)
-                {
-                    
-                }
-
-                playerHandController.DropItem();
-            } 
-            else{
-                if(raycastHandler.GetCollider() != null)
-                {
-                    raycastHandler.GetCollidedGameObject().GetComponent<Interactable>().Interact();
-                }
-            }
+            OnInteractClicked?.Invoke();
         }
     }
 

@@ -6,22 +6,44 @@ public class CauldronController : MonoBehaviour, IStation
     // Bottle
     private CauldronModel cauldronModel;
 
+    [SerializeField]
+    private SpriteRenderer bottleRenderer;
+
+    [SerializeField]
+    private SpriteRenderer ingredientRenderer;
+
     private bool isMixing = false;
-    // Ingredient
-    public void InitiateInteraction(PlayerHandController playerHandController)
+
+    void Awake()
     {
+        cauldronModel = new CauldronModel();
+    }
+
+    public void InteractStation(PlayerHandController playerHandController)
+    {
+        Debug.Log("IsInteracting :" + playerHandController.isHoldingItem());
         if (playerHandController.isHoldingItem())
         {
-            // GameObject gameObject = playerHandController.GetHeldItem();
-            // ItemController itemController = gameObject.GetComponent<ItemController>();
-            // if(itemController.itemTypes == ItemTypes.BOTTLE)
-            // {
-            //     cauldronModel.SetBottle(itemController.GetItemData());
-            // } else if (itemController.itemTypes == ItemTypes.INGREDIENT)
-            // {
-            //     cauldronModel.SetIngredient(itemController.GetItemData());
-            // }
+            GameObject heldItem = playerHandController.GetHeldItem();
+            
+            bool isBottle = heldItem.TryGetComponent<Bottle>(out var bottle);
+            bool isIngredient = heldItem.TryGetComponent<Ingredient>(out var ingredient);
+            if (isBottle)
+            {
+                cauldronModel.SetBottle(bottle.Model);
+            } else if (isIngredient)
+            {
+                cauldronModel.SetIngredient(ingredient.Model);
+            }
+            playerHandController.ConsumeObject();
+        } else
+        {
+            BottleModel bottleModel = cauldronModel.InteractCauldron();
+            if (bottleModel != null)
+            {
+                // bottleRenderer.sprite = bottleModel.GetSprite();
+                // ingredientRenderer.sprite = bottleModel.GetSprite();
+            }
         }
-        
     }
 }

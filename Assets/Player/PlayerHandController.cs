@@ -5,43 +5,39 @@ public class PlayerHandController : MonoBehaviour
     [SerializeField]
     private GameObject itemSlot;
 
-    private IItem pickedUpItem;
+    private IPickUp heldItem;
 
+
+    // To Remove vvv
     void OnEnable()
     {
-        ItemController.onItemInteract += PickUpItem;
         StationController.OnStationInteract += StationInteract;
     }
 
     void OnDisable()
     {
-        ItemController.onItemInteract -= PickUpItem;
         StationController.OnStationInteract -= StationInteract;
     }
-
+    // To Remove ^^^
     public void StationInteract(IStation stationController)
     {
-        stationController.InitiateInteraction(this);
+        stationController.InteractStation(this);
     }
 
-
-    public void PickUpItem(IItem item)
+    public void PickUpItem(IPickUp pickUpItem)
     {
         if (isHoldingItem())
         {
             return;
         }
-        item.PickUp(this);
-        pickedUpItem = item;
+        SetHeldItem(pickUpItem.GetGameObject());
+        heldItem = pickUpItem;
     }
+
+
     public bool isHoldingItem()
     {
         return itemSlot.transform.childCount > 0;
-    }
-
-    public GameObject GetHeldItem()
-    {
-        return itemSlot.transform.GetChild(0).gameObject;
     }
 
     public void SetHeldItem(GameObject gameObject)
@@ -49,20 +45,29 @@ public class PlayerHandController : MonoBehaviour
         
         gameObject.transform.parent = itemSlot.transform;
         gameObject.transform.position = itemSlot.transform.position;
-        
-        // Rigidbody2D itemRb = item.GetComponent<Rigidbody2D>();
-        // itemRb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
     
     public void DropItem()
     {
-        GameObject item = GetHeldItem();
+        GameObject item = heldItem.GetGameObject();
         item.transform.parent = null;
+        heldItem.Drop(this);
+        heldItem = null;
         
-        pickedUpItem.GetGameObject().GetComponent<ItemController>().Drop(this);
-        pickedUpItem = null;
-        // Rigidbody2D itemRb = item.GetComponent<Rigidbody2D>();
-        // itemRb.constraints = RigidbodyConstraints2D.None;
-        
+    }
+
+    public GameObject GetHeldItem()
+    {
+        return heldItem.GetGameObject();
+    }
+
+    public void ConsumeObject()
+    {
+        if (isHoldingItem())
+        {
+            GameObject item = heldItem.GetGameObject();
+            Destroy(item);
+            heldItem = null;
+        }
     }
 }

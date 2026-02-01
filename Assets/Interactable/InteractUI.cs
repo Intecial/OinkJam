@@ -14,10 +14,6 @@ public class InteractUI : MonoBehaviour
     {
         Hide();
     }
-    void OnEnable()
-    {
-        RaycastHandler.OnInteractableHit += CheckInteractable;
-    }
 
     private void CheckInteractable(Interactable interactable)
     {

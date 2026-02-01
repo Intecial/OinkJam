@@ -4,7 +4,6 @@ using UnityEngine;
 public class RaycastHandler : MonoBehaviour
 {
     
-    public static event Action<Interactable> OnInteractableHit;
     [SerializeField] private float reachDistance = 2f;
     [SerializeField] private Transform player;
     [SerializeField] private LayerMask interactableMask;
@@ -12,29 +11,61 @@ public class RaycastHandler : MonoBehaviour
     [SerializeField] private PlayerHandController playerHandController;
     private RaycastHit2D hit;
 
+    void Awake()
+    {
+        InputController.OnInteractClicked += CheckForColliders;
+    }
+
+    void OnDestroy()
+    {
+        InputController.OnInteractClicked -= CheckForColliders;
+    }
+
     void Update()
     {
-        CheckForColliders();
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    
     public void CheckForColliders()
     {
+        InitializeRaycast();
+        if (playerHandController.isHoldingItem())
+        {
+            // If Is Station, interact wiht station with the object
+            if (hit.collider != null && hit.collider.TryGetComponent<IStation>(out var station))
+            {
+                station.InteractStation(playerHandController);
+            } else
+            {
+                // Else drop it
+                playerHandController.DropItem();
+                
+            }
+        }
+        else if (hit.collider != null)
+        {
+            if (hit.collider.TryGetComponent<IPickUp>(out var pickUp))
+            {
+                pickUp.PickUp(playerHandController);
+            }
+            else if(hit.collider.TryGetComponent<IStation>(out var station))
+            {
+                station.InteractStation(playerHandController);
+            }
+            Debug.Log("Interacted!");
+        } else
+        {
+            
+        }
+    }
+
+    void InitializeRaycast()
+    {
         Vector2 origin = player.position;
         Vector2 direction = player.up; // top-down facing direction
 
         hit = Physics2D.Raycast(origin, direction, reachDistance, interactableMask);
-
-        if (hit.collider != null && !playerHandController.isHoldingItem())
-        {
-            if(hit.collider.gameObject.TryGetComponent<Interactable>(out var interactable))
-            {
-                OnInteractableHit.Invoke(interactable);
-            }
-        } else
-        {
-            OnInteractableHit.Invoke(null);
-        }
     }
 
     private void OnDrawGizmos()
