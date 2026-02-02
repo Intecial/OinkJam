@@ -8,7 +8,8 @@ public class BottleModel
     public ItemConfig Config => itemConfig;
     private int maxIngredients = 3;
     private List<IngredientModel> ingredients;
-    
+
+    public List<IngredientModel> GetIngredients() => this.ingredients;    
     public BottleModel(BottleModel bottleModel)
     {
         this.ingredients = new List<IngredientModel>(bottleModel.ingredients);

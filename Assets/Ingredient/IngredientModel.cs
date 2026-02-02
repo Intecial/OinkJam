@@ -5,6 +5,9 @@ public class IngredientModel
 
     public IngredientModel(ItemConfig itemConfig) => this.itemConfig = itemConfig;
 
+    public string GetName(){
+        return itemConfig.name;
+    }
 
     public override string ToString()
     {

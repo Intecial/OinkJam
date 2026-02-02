@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewIngredient", menuName = "Ingredient Config")]
-public class IngredientData : ItemConfig
+public class IngredientConfig : ItemConfig
 {
     public IngredientEffect effect;
 }
