@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientConfig
   itemName: Mushroom
   itemType: 1
-  sprite: {fileID: 21300000, guid: 3028a3190814b46b28594ad8db2b9cae, type: 3}
+  sprite: {fileID: 21300000, guid: 06c44db01f1154bb1acd3ab05dda548e, type: 3}
+  cost: 10
   effect: 0

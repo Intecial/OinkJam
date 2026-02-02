@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GameUSS.uss?fileID=7433441132597879392&amp;guid=c5cb77983e53cc448ab627e705ce391b&amp;type=3#GameUSS"/>
+    <ui:VisualElement style="flex-grow: 0; flex-direction: row; align-self: flex-start;">
+        <ui:Image source="project://database/Assets/Art/ingredient_temp.png?fileID=21300000&amp;guid=3028a3190814b46b28594ad8db2b9cae&amp;type=3#ingredient_temp" name="ItemSprite"/>
+        <ui:Label text="Mushroom" name="ItemName" class="font-size font-style" style="-unity-text-align: middle-center; height: 100%;"/>
+    </ui:VisualElement>
+</ui:UXML>

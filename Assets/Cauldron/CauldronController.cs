@@ -69,7 +69,7 @@ public class CauldronController : MonoBehaviour, IStation
             if (bottleModel != null)
             {
                 GameObject bottleObj = Instantiate(bottlePrefab, this.transform.position, Quaternion.identity);
-                bottleObj.GetComponent<Bottle>().SetBottleModel(bottleModel);
+                bottleObj.GetComponent<Bottle>().SetBottleModel(bottleModel, bottleModel.Config);
                 bottleObj.GetComponent<IPickUp>().PickUp(playerHandController);
                 // bottleRenderer.sprite = bottleModel.GetSprite();
                 // ingredientRenderer.sprite = bottleModel.GetSprite();

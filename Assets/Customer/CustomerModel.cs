@@ -1,11 +1,23 @@
 using System.Collections.Generic;
-
+using UnityEngine;
 public class CustomerModel{
 
+    private CustomerConfig customerConfig;
+
+    public CustomerConfig Config => customerConfig;
     private BottleModel requestedBottle;
 
-    public CustomerModel(BottleModel requestedBottle){
+    public BottleModel Bottle => requestedBottle;
+
+    public int totalPay { get; private set; }
+
+    public CustomerModel(BottleModel requestedBottle, CustomerConfig customerConfig){
         this.requestedBottle = requestedBottle;
+        this.customerConfig = customerConfig;
+        totalPay = 0;
+        int pay = requestedBottle.GetTotalCost();
+        int profitMargin = customerConfig.profitMargin;
+        totalPay = Mathf.RoundToInt((pay * (profitMargin / 100f)) + pay);
     }
 
     public bool GiveBottle(BottleModel bottleModel){

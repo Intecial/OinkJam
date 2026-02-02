@@ -1,0 +1,28 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="ItemTemplate" src="project://database/Assets/Item/ItemTemplate.uxml?fileID=9197481963319205126&amp;guid=a6233184813394d12b752dc8cc793dd1&amp;type=3#ItemTemplate"/>
+    <Style src="project://database/Assets/UI%20Toolkit/GameUSS.uss?fileID=7433441132597879392&amp;guid=c5cb77983e53cc448ab627e705ce391b&amp;type=3#GameUSS"/>
+    <ui:VisualElement class="customer-container bg-primary bg-secondary">
+        <ui:VisualElement name="CustomerPotraitContainer" style="flex-grow: 1; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
+            <ui:Image source="project://database/Assets/Art/RPGFantasyArtPack/Angelica-Angel_A.png?fileID=2800000&amp;guid=ed6645a2aecd043568463fb9a209ab56&amp;type=3#Angelica-Angel_A" name="CustomerPotraitImage" class="customer-potrait bg-primary"/>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
+            <ui:VisualElement name="CustomerDetails">
+                <ui:VisualElement name="Row" class="row-container bg-primary" style="width: 100%;">
+                    <ui:Label text="Name" class="font-size font-style row-label"/>
+                    <ui:Label text="Jane Doe" name="CustomerName" class="font-size font-style row-label-alt"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="Row" class="row-container bg-primary" style="flex-direction: row; width: 100%;">
+                    <ui:Label text="Pay" class="font-size font-style row-label"/>
+                    <ui:Label text="9999" name="CustomerPrice" class="font-size font-style row-label-alt"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Label text="Hey I want a Mix with these effects:" name="Label" class="font-size font-style"/>
+            <ui:VisualElement name="ItemContainer" class="effect-list bg-primary" style="width: 100%;">
+                <ui:Instance template="ItemTemplate"/>
+                <ui:Instance template="ItemTemplate"/>
+                <ui:Instance template="ItemTemplate"/>
+            </ui:VisualElement>
+            <ui:Button text="Close" name="CloseButton" class="main-button font-size font-style"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

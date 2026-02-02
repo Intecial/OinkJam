@@ -16,7 +16,11 @@ public class Bottle : MonoBehaviour, IPickUp
         rb = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
-        bottleModel = new BottleModel(itemConfig);
+        if(this.itemConfig != null)
+        {
+            
+            bottleModel = new BottleModel(this.itemConfig);
+        }
         Initialize(this.itemConfig);
     }
 
@@ -28,9 +32,11 @@ public class Bottle : MonoBehaviour, IPickUp
         
     }
 
-    public void SetBottleModel(BottleModel bottleModel)
+    public void SetBottleModel(BottleModel bottleModel, ItemConfig itemConfig)
     {
         this.bottleModel = new BottleModel(bottleModel);
+        this.itemConfig = itemConfig;
+        sr.sprite = itemConfig.sprite;
     }
     public void Drop(PlayerHandController playerHandController)
     {

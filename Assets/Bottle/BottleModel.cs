@@ -9,6 +9,8 @@ public class BottleModel
     private int maxIngredients = 3;
     private List<IngredientModel> ingredients;
 
+    private int totalCost;
+
     public List<IngredientModel> GetIngredients() => this.ingredients;    
     public BottleModel(BottleModel bottleModel)
     {
@@ -42,4 +44,11 @@ public class BottleModel
         }
         return ret;
     }
+
+    public void SetTotalCost(int totalCost)
+    {
+        this.totalCost = totalCost;
+    }
+
+    public int GetTotalCost() => this.totalCost;
 }

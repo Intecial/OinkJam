@@ -6,6 +6,7 @@ public class CauldronModel
     public static event Action OnBottleChange;
 
     public static event Action OnIngredientChange;
+
     public BottleModel bottle { get; private set; }
     public IngredientModel ingredient { get; private set; }
 
