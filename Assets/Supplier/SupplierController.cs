@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class SupplierController : MonoBehaviour, IStation{
+public class SupplierController : MonoBehaviour, IStation, ICostMoney{
 
+    [SerializeField] private ItemConfig itemToSpawn;
     [SerializeField] private GameObject prefab;
 
     public void InteractStation(PlayerHandController playerHandController)

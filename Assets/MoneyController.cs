@@ -1,16 +1,17 @@
 using UnityEngine;
-
+using UnityEngine.UIElements;
 public class MoneyController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    private int money;
+
+    // private MoneyView moneyUI;
+    
+    private void AddMoney(int amount){
+        money += amount;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public int GetMoney(){
+        return money;
     }
+
 }
