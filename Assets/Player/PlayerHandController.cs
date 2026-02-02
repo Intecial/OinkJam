@@ -8,17 +8,7 @@ public class PlayerHandController : MonoBehaviour
     private IPickUp heldItem;
 
 
-    // To Remove vvv
-    void OnEnable()
-    {
-        StationController.OnStationInteract += StationInteract;
-    }
 
-    void OnDisable()
-    {
-        StationController.OnStationInteract -= StationInteract;
-    }
-    // To Remove ^^^
     public void StationInteract(IStation stationController)
     {
         stationController.InteractStation(this);

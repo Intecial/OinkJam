@@ -24,7 +24,7 @@ public class Ingredient : MonoBehaviour, IPickUp
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
-        ingredientModel = new IngredientModel();
+        ingredientModel = new IngredientModel(this.itemConfig);
         Initialize(this.itemConfig);
     }
     public void Drop(PlayerHandController playerHandController)

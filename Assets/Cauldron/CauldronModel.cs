@@ -3,16 +3,28 @@ using UnityEngine;
 
 public class CauldronModel
 {
-    private BottleModel bottle;
-    private IngredientModel ingredient;
+    public static event Action OnBottleChange;
 
-    public BottleModel GetBottle()
+    public static event Action OnIngredientChange;
+    public BottleModel bottle { get; private set; }
+    public IngredientModel ingredient { get; private set; }
+
+    public BottleModel TakeBottle()
     {
         Debug.Log("Grab Bottle");
         BottleModel bottleModelCopy = new BottleModel(bottle);
-        this.bottle = null;
+        ClearBottle();
         return bottleModelCopy;
-        
+    }
+
+    private void ClearBottle(){
+        this.bottle = null;
+        OnBottleChange.Invoke();
+    }
+
+    private void ClearIngredient(){
+        this.ingredient = null;
+        OnIngredientChange.Invoke();
     }
 
     public void MixIngredients()
@@ -21,20 +33,15 @@ public class CauldronModel
         if(bottle != null && ingredient != null)
         {
             bottle.AddIngredient(ingredient);
-            ingredient = null;
+            ClearIngredient();
         }
-    }
-
-    public void SetBottle(BottleModel bottle)
-    {
-        this.bottle = bottle; 
     }
 
     public BottleModel InteractCauldron()
     {
         if(ingredient == null)
         {
-            return GetBottle();
+            return TakeBottle();
         }
         else
         {
@@ -45,5 +52,12 @@ public class CauldronModel
     public void SetIngredient(IngredientModel ingredient)
     {
         this.ingredient = ingredient;
+        OnIngredientChange.Invoke();
+    }
+
+    public void SetBottle(BottleModel bottle)
+    {
+        this.bottle = bottle; 
+        OnBottleChange.Invoke();
     }
 }

@@ -16,7 +16,7 @@ public class Bottle : MonoBehaviour, IPickUp
         rb = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
-        bottleModel = new BottleModel();
+        bottleModel = new BottleModel(itemConfig);
         Initialize(this.itemConfig);
     }
 
@@ -24,6 +24,7 @@ public class Bottle : MonoBehaviour, IPickUp
     {
         this.itemConfig = itemConfig;
         sr.sprite = itemConfig.sprite;
+        bottleModel = new BottleModel(itemConfig);
         
     }
 

@@ -8,3 +8,8 @@ public class ItemConfig : ScriptableObject
     public ItemTypes itemType;
     public Sprite sprite;
 }
+
+public enum ItemTypes{
+    BOTTLE,
+    INGREDIENT
+}
