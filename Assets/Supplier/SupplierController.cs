@@ -15,6 +15,7 @@ public class SupplierController : MonoBehaviour, IStation, ICostMoney{
         bool hasPickUp = itemObj.TryGetComponent<IPickUp>(out var pickUp);
         if (hasPickUp)
         {
+            MoneyController.TryDeduct(itemToSpawn.cost);
             pickUp.PickUp(playerHandController);
         }
 

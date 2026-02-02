@@ -1,8 +1,20 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 public class MoneyController : MonoBehaviour
 {
-    private int money;
+    public static event Action<int> OnDeductMoney;
+    private static int money;
+
+    public static bool TryDeduct(int amount)
+    {
+        if (money < amount)
+            return false;
+
+        money -= amount;
+        OnDeductMoney?.Invoke(amount);
+        return true;
+    }
 
     // private MoneyView moneyUI;
     
