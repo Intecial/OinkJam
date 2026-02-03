@@ -7,7 +7,13 @@ public class CauldronModel
     public event Action<int> OnTimerTick;
     public  event Action OnBottleChange;
 
+    public event Action OnBrewing;
+
+    public event Action OnBrewingComplete;
+
     public  event Action OnIngredientChange;
+
+    public event Action OnBottlePickUp;
 
     public BottleModel bottle { get; private set; }
     public IngredientModel ingredient { get; private set; }
@@ -19,7 +25,7 @@ public class CauldronModel
 
     public BottleModel TakeBottle()
     {
-        Debug.Log("Grab Bottle");
+        OnBottlePickUp.Invoke();
         BottleModel bottleModelCopy = new BottleModel(bottle);
         ClearBottle();
         return bottleModelCopy;
@@ -44,12 +50,14 @@ public class CauldronModel
             ClearIngredient();
         }
         isOccupied = true;
+        OnBrewing.Invoke();
         for(int i = 0; i < timeTaken; i++)
         {
             time = timeTaken - i;
             OnTimerTick.Invoke(time);
             yield return new WaitForSeconds(1);
         }
+        OnBrewingComplete.Invoke();
         OnTimerTick.Invoke(0);
         isOccupied = false;
     }

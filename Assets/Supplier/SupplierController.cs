@@ -6,11 +6,18 @@ public class SupplierController : MonoBehaviour, IStation{
     [SerializeField] private GameObject bottlePrefab;
     [SerializeField] private GameObject ingredientPrefab;
 
+     private AudioSource source;
+
+    [SerializeField] private AudioClip pickUpBottle;
+
+    [SerializeField] private AudioClip pickUpIngredient;
+
     [SerializeField]
     private SpriteRenderer bottleRenderer;
 
     void Awake()
     {
+        source = GetComponent<AudioSource>();
         bottleRenderer.sprite = itemToSpawn.sprite;
     }
 
@@ -29,11 +36,17 @@ public class SupplierController : MonoBehaviour, IStation{
                 itemObj = Instantiate(bottlePrefab, this.transform.position, Quaternion.identity);
                 Bottle bottle = itemObj.GetComponent<Bottle>();
                 bottle.Initialize(itemToSpawn as BottleConfig);
+                source.clip = pickUpBottle;
+                source.time = 0.55f;
+                source.Play();
             } else
             {
                 itemObj = Instantiate(ingredientPrefab, this.transform.position, Quaternion.identity);
                 Ingredient ingredient = itemObj.GetComponent<Ingredient>();
                 ingredient.Initialize(itemToSpawn as IngredientConfig);
+                source.clip = pickUpIngredient;
+                source.time = 0.18f;
+                source.Play();
             }
             bool hasPickUp = itemObj.TryGetComponent<IPickUp>(out var pickUp);
             if (hasPickUp)

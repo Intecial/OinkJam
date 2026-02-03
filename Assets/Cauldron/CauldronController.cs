@@ -11,10 +11,25 @@ public class CauldronController : MonoBehaviour, IStation
     private CauldronModel cauldronModel;
 
     [SerializeField]
+    private AudioSource source;
+
+    [SerializeField]
+    private AudioClip brewingClip;
+
+    [SerializeField]
+    private AudioClip cauldronCompleteDing;
+
+    [SerializeField]
     private SpriteRenderer bottleRenderer;
 
     [SerializeField]
     private SpriteRenderer ingredientRenderer;
+
+    [SerializeField]
+    private AudioClip pickUpBottle;
+
+    [SerializeField]
+    private AudioClip pickUpIngredient;
 
     [SerializeField]
     private TextMeshPro timeText;
@@ -25,15 +40,25 @@ public class CauldronController : MonoBehaviour, IStation
     {
         cauldronModel = new CauldronModel();
         cauldronModel.OnBottleChange += OnBottleChange;
+        cauldronModel.OnBottleChange += PlayPickUp;
         cauldronModel.OnIngredientChange += OnIngredientChange;
         cauldronModel.OnTimerTick += UpdateTimerLabel;
+        cauldronModel.OnBrewing += PlayBrewing;
+        cauldronModel.OnBottlePickUp += PlayPickUp;
+        cauldronModel.OnBrewingComplete += PlayCompleteDing;
+        cauldronModel.OnIngredientChange += PlayIngredientPickUp;
         UpdateTimerLabel(0);
     }
 
     private void OnDestroy() {
         cauldronModel.OnBottleChange -= OnBottleChange;
+        cauldronModel.OnBottleChange -= PlayPickUp;
         cauldronModel.OnIngredientChange -= OnIngredientChange;
+        cauldronModel.OnIngredientChange -= PlayIngredientPickUp;
         cauldronModel.OnTimerTick -= UpdateTimerLabel;
+        cauldronModel.OnBrewing -= PlayBrewing;
+        cauldronModel.OnBottlePickUp -= PlayPickUp;
+        cauldronModel.OnBrewingComplete -= PlayCompleteDing;
     }
 
     private void OnBottleChange() {
@@ -102,5 +127,27 @@ public class CauldronController : MonoBehaviour, IStation
         timeText.text = time.ToString();
     }
 
+    private void PlayBrewing()
+    {
+        source.PlayOneShot(brewingClip);
+    }
+
+    private void PlayPickUp()
+    {
+        source.clip = pickUpBottle;
+        source.time = 0.55f;
+        source.Play();
+    }
+
+    private void PlayCompleteDing()
+    {
+        source.PlayOneShot(cauldronCompleteDing);
+    }
     
+    private void PlayIngredientPickUp()
+    {
+        source.clip = pickUpIngredient;
+        source.time = 0.18f;
+        source.Play();
+    }
 }

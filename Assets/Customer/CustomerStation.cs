@@ -8,6 +8,14 @@ public class CustomerStation : MonoBehaviour, IStation
     private CustomerView customerView;
     [SerializeField]
     private SpriteRenderer CustomerSprite;
+
+    private AudioSource source;
+
+    [SerializeField]
+    private AudioClip customerServed;
+
+    [SerializeField]
+    private AudioClip customerDenied;
     private CustomerModel customerModel;
 
     public bool IsEmpty(){
@@ -15,6 +23,7 @@ public class CustomerStation : MonoBehaviour, IStation
     }
     void Awake()
     {
+        source = GetComponent<AudioSource>();
         Registry<CustomerStation>.TryAdd(this);
         customerModel = null;
         customerView = GetComponent<CustomerView>();
@@ -35,12 +44,14 @@ public class CustomerStation : MonoBehaviour, IStation
             GameObject heldItem = playerHandController.GetHeldItem();
             if(heldItem.TryGetComponent<Bottle>(out var bottle)){
                 if(customerModel.GiveBottle(bottle.Model)){
-
+                    
                     // Add Money
                     MoneyController.Instance.TryAdd(customerModel.totalPay);
+                    source.PlayOneShot(customerServed);
                     playerHandController.ConsumeObject();
                     ClearCustomer();
                 } else {
+                    source.PlayOneShot(customerDenied);
                     Debug.Log("Wrong Ingredient!");
                 }
             }
