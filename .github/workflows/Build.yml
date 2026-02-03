@@ -34,3 +34,15 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
+
+  itchio-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup butler
+        uses: remarkablegames/setup-butler@v2
+
+      # https://itch.io/docs/butler/pushing.html
+      - name: Upload to itch.io
+        run: butler push actions/upload-artifact@v4 intecial/oinkwip:win
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
