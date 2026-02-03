@@ -18,7 +18,7 @@ public class MoneyController : MonoBehaviour
         Instance = this;
     }
     public static event Action<int> OnMoneyUpdated;
-    private int money = 100;
+    private int money = 500;
 
     void Start()
     {

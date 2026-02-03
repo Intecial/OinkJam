@@ -1,14 +1,21 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class CauldronModel
 {
-    public static event Action OnBottleChange;
+    public event Action<int> OnTimerTick;
+    public  event Action OnBottleChange;
 
-    public static event Action OnIngredientChange;
+    public  event Action OnIngredientChange;
 
     public BottleModel bottle { get; private set; }
     public IngredientModel ingredient { get; private set; }
+
+    public bool isOccupied = false;
+    private int timeTaken = 10;
+
+    public int time;
 
     public BottleModel TakeBottle()
     {
@@ -28,7 +35,7 @@ public class CauldronModel
         OnIngredientChange.Invoke();
     }
 
-    public void MixIngredients()
+    public IEnumerator MixIngredients()
     {
         Debug.Log("Mixing Ingredients");
         if(bottle != null && ingredient != null)
@@ -36,29 +43,48 @@ public class CauldronModel
             bottle.AddIngredient(ingredient);
             ClearIngredient();
         }
+        isOccupied = true;
+        for(int i = 0; i < timeTaken; i++)
+        {
+            time = timeTaken - i;
+            OnTimerTick.Invoke(time);
+            yield return new WaitForSeconds(1);
+        }
+        OnTimerTick.Invoke(0);
+        isOccupied = false;
     }
 
     public BottleModel InteractCauldron()
     {
-        if(ingredient == null)
+        if (isOccupied)
+        {
+            return null;
+        }
+        if(ingredient == null && bottle != null)
         {
             return TakeBottle();
         }
-        else
-        {
-            MixIngredients();
-        }
         return null;
     }
-    public void SetIngredient(IngredientModel ingredient)
+    public bool SetIngredient(IngredientModel ingredient)
     {
+        if(this.ingredient != null)
+        {
+            return false;
+        }
         this.ingredient = ingredient;
         OnIngredientChange.Invoke();
+        return true;
     }
 
-    public void SetBottle(BottleModel bottle)
+    public bool SetBottle(BottleModel bottle)
     {
+        if(this.bottle != null)
+        {
+            return false;
+        }
         this.bottle = bottle; 
         OnBottleChange.Invoke();
+        return true;
     }
 }

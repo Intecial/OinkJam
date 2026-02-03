@@ -179,4 +179,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe0befdb402e48bb8e8efffca39ae70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BottleNew
+  colorSprite: {fileID: 21300000, guid: 4fe0181044e5b4aaea26258ff98a2798, type: 3}
   itemConfig: {fileID: 11400000, guid: 1cedaffba05f8409bb09cbbec335b5cd, type: 2}

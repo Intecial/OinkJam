@@ -11,31 +11,31 @@ public class CustomerController : MonoBehaviour
 
     private CustomerConfig[] customerConfigs;
 
+    [SerializeField]
+    private float spawnTimer = 30f;
+
+    private float timeTick = 0f;
+
     private void Awake()
     {
         bottleRandomization = new BottleRandomization();
         customerConfigs = Resources.LoadAll<CustomerConfig>("Customers");
+        timeTick = 10f;
     }
 
     void Update()
     {
-        IEnumerable<CustomerStation> candidates = Registry<CustomerStation>.All;
-        foreach (CustomerStation candidate in candidates)
-        {   
-
-            if(candidate == null) continue;
-            if(candidate is not Component component) continue;
-            if(candidate.IsEmpty()) {
-                Debug.Log("Am I sapwning Customer?");
-                SpawnCustomer();
-                break;
-            }
+        timeTick -= Time.deltaTime;
+        if (timeTick <= 0)
+        {
+            SpawnCustomer();
+            timeTick = spawnTimer;
         }
     }
 
     private void SpawnCustomer()
     {
-        BottleModel bottleModel = bottleRandomization.RandomizeBottle(2);
+        BottleModel bottleModel = bottleRandomization.RandomizeBottle(Random.Range(1,5));
         CustomerConfig customerConfig = customerConfigs[Random.Range(0, customerConfigs.Length)];
         CustomerModel customerModel = new CustomerModel(bottleModel, customerConfig);
         CustomerStation customerStation = Registry<CustomerStation>.Get(GetEmptyStation);

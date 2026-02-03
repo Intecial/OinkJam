@@ -56,13 +56,22 @@ public class CustomerView : MonoBehaviour
         itemContainer.Clear();
         CreateItemRow(bottleModel.Config, itemContainer);
 
-        List<IngredientModel> ingredients = bottleModel.GetIngredients();
-        foreach (IngredientModel ingredient in ingredients)
+        List<EffectModel> effects = bottleModel.GetEffects();
+        foreach (EffectModel effect in effects)
         {
-            CreateItemRow(ingredient.Config, itemContainer);
+            CreateEffectRow(effect.Config, itemContainer);
         }
 
         Show();
+    }
+
+    private void CreateEffectRow(EffectConfig effectConfig, VisualElement itemContainer)
+    {
+        VisualElement itemRow = itemTemplate.CloneTree();
+        itemRow.Q<Label>("ItemName").text = effectConfig.EffectName;
+        // itemRow.Q<Image>("ItemSprite").sprite = itemConfig.sprite;
+        itemContainer.Add(itemRow);
+        
     }
 
     private void CreateItemRow(ItemConfig itemConfig, VisualElement itemContainer) {

@@ -21,20 +21,21 @@ public class CustomerModel{
     }
 
     public bool GiveBottle(BottleModel bottleModel){
-        List<string> ingredients = GetBottleIngredientsNames(bottleModel);
-        List<string> requestedIngredients = GetBottleIngredientsNames(requestedBottle);
-        foreach (string requestedIngredient in requestedIngredients){
-            if(ingredients.Contains(requestedIngredient) == false){
+        List<string> effects = GetBottleEffectNames(bottleModel);
+        List<string> requestedEffects = GetBottleEffectNames(requestedBottle);
+        // List<string> requestedIngredients = GetBottleIngredientsNames(requestedBottle);
+        foreach (string requestedEffect in requestedEffects){
+            if(effects.Contains(requestedEffect) == false){
                 return false;
             }
         }
         return true;
     }
 
-    public List<string> GetBottleIngredientsNames(BottleModel bottleModel){
+    public List<string> GetBottleEffectNames(BottleModel bottleModel){
         List<string> ret = new List<string>();
-        foreach (IngredientModel ingredient in bottleModel.GetIngredients()){
-            ret.Add(ingredient.GetName());
+        foreach (EffectModel effect in bottleModel.GetEffects()){
+            ret.Add(effect.Config.EffectName.ToLower());
         }
         return ret;
     }

@@ -108,6 +108,7 @@
 
 .bg-primary {
     background-color: rgb(70, 71, 50);
+    -unity-text-align: middle-center;
 }
 
 .bg-secondary {

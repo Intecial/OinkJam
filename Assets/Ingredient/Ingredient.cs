@@ -3,7 +3,7 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour, IPickUp
 {
     [SerializeField]
-    private ItemConfig itemConfig;
+    private IngredientConfig itemConfig;
 
     private SpriteRenderer sr;
     private Rigidbody2D rb;
@@ -26,7 +26,7 @@ public class Ingredient : MonoBehaviour, IPickUp
         Initialize(this.itemConfig);
     }
 
-    public void Initialize(ItemConfig itemConfig)
+    public void Initialize(IngredientConfig itemConfig)
     {
         this.itemConfig = itemConfig;
         sr.sprite = itemConfig.sprite;

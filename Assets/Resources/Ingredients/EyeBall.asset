@@ -17,3 +17,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 75a523f85e393f745bbfd42876fa3501, type: 3}
   cost: 20
   effect: 0
+  effectConfigs:
+  - {fileID: 11400000, guid: 5290d14785b9e495392ec6b07bf54260, type: 2}

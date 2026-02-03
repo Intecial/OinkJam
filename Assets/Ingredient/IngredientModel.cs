@@ -1,11 +1,16 @@
+using System.Collections.Generic;
+
 public class IngredientModel
 {
     private ItemConfig itemConfig;
     public ItemConfig Config => itemConfig;
 
-    public IngredientModel(ItemConfig itemConfig)
+    public IngredientConfig ingredientConfig;
+
+    public IngredientModel(IngredientConfig itemConfig)
     {
-        this.itemConfig = itemConfig;
+        this.itemConfig = itemConfig as ItemConfig;
+        this.ingredientConfig = itemConfig;
         
     }
         

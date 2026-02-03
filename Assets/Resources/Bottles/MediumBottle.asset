@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8e77d4335b844563a8438000dd356bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b446476fcf16464bb4b4c6869a0dbae, type: 3}
   m_Name: MediumBottle
-  m_EditorClassIdentifier: Assembly-CSharp::ItemConfig
+  m_EditorClassIdentifier: Assembly-CSharp::BottleConfig
   itemName: MediumBottle
   itemType: 0
   sprite: {fileID: -7172836395497189917, guid: a8d05ab95063044b5b1eafe89f0325cf, type: 3}
   cost: 20
+  ColorSprite: {fileID: 1657874865334019070, guid: 5d4a9771df4d24f8a97bac1edc412c58, type: 3}

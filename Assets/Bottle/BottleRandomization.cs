@@ -2,26 +2,29 @@
 using UnityEngine;
 public class BottleRandomization
 {
-    private ItemConfig[] bottleConfigs;
+    private BottleConfig[] bottleConfigs;
 
-    private ItemConfig[] ingredientConfigs;
+    private IngredientConfig[] ingredientConfigs;
+
+    private EffectConfig[] effectConfigs;
 
     public BottleRandomization()
     {
-        bottleConfigs = Resources.LoadAll<ItemConfig>("Bottles");
-        ingredientConfigs = Resources.LoadAll<ItemConfig>("Ingredients");
+        bottleConfigs = Resources.LoadAll<BottleConfig>("Bottles");
+        ingredientConfigs = Resources.LoadAll<IngredientConfig>("Ingredients");
+        effectConfigs = Resources.LoadAll<EffectConfig>("Effects");
     }
 
     public BottleModel RandomizeBottle(int numOfIngredients)
     {
         int totalCost = 0;
-        ItemConfig bottleConfig = bottleConfigs[Random.Range(0, bottleConfigs.Length)];
+        BottleConfig bottleConfig = bottleConfigs[Random.Range(0, bottleConfigs.Length)];
         BottleModel bottleModel = new BottleModel(bottleConfig);
         totalCost += bottleConfig.cost;
         
         for (int i = 0; i < numOfIngredients; i++)
         {
-            ItemConfig ingredientConfig = ingredientConfigs[Random.Range(0, ingredientConfigs.Length)];
+            IngredientConfig ingredientConfig = ingredientConfigs[Random.Range(0, ingredientConfigs.Length)];
             bottleModel.AddIngredient(new IngredientModel(ingredientConfig));
             totalCost += ingredientConfig.cost;
         }

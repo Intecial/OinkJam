@@ -7,7 +7,13 @@ public class StatusController : MonoBehaviour, IStation
         if (playerHandController.isHoldingItem())
         {
             GameObject heldItem = playerHandController.GetHeldItem();
-            Debug.Log(heldItem.GetComponent<Bottle>().Model);
+            BottleModel bottleModel = heldItem.GetComponent<Bottle>().Model;
+            Debug.Log(bottleModel.GetEffects().Count);
+            foreach (EffectModel effect in bottleModel.GetEffects())
+            {
+                Debug.Log("Effect: "+ effect.ToString());
+            }
+            Debug.Log(heldItem.GetComponent<Bottle>().Model.ToString());
         }
 
     }

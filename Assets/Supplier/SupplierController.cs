@@ -28,12 +28,12 @@ public class SupplierController : MonoBehaviour, IStation{
             {
                 itemObj = Instantiate(bottlePrefab, this.transform.position, Quaternion.identity);
                 Bottle bottle = itemObj.GetComponent<Bottle>();
-                bottle.Initialize(itemToSpawn);
+                bottle.Initialize(itemToSpawn as BottleConfig);
             } else
             {
                 itemObj = Instantiate(ingredientPrefab, this.transform.position, Quaternion.identity);
                 Ingredient ingredient = itemObj.GetComponent<Ingredient>();
-                ingredient.Initialize(itemToSpawn);
+                ingredient.Initialize(itemToSpawn as IngredientConfig);
             }
             bool hasPickUp = itemObj.TryGetComponent<IPickUp>(out var pickUp);
             if (hasPickUp)
