@@ -1,5 +1,8 @@
 name: Upload to itch.io
-on: push
+on: 
+  workflow_run:
+    workflows: ["Build project"]
+    types: [completed]
 jobs:
   itchio-upload:
     runs-on: ubuntu-latest
