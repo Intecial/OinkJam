@@ -9,6 +9,6 @@ jobs:
 
       # https://itch.io/docs/butler/pushing.html
       - name: Upload to itch.io
-        run: butler push directory user/game:channel
+        run: butler push directory intecial/OinkWIP:win
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
