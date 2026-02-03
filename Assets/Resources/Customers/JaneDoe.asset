@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: JaneDoe
   m_EditorClassIdentifier: Assembly-CSharp::CustomerConfig
   customerName: Jane Doe
-  profitMargin: 5
+  profitMargin: 25

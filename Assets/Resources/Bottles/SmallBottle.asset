@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8e77d4335b844563a8438000dd356bd, type: 3}
-  m_Name: BottleB
+  m_Name: SmallBottle
   m_EditorClassIdentifier: Assembly-CSharp::ItemConfig
-  itemName: BottleB
+  itemName: SmallBottle
   itemType: 0
-  sprite: {fileID: -7172836395497189917, guid: a8d05ab95063044b5b1eafe89f0325cf, type: 3}
-  cost: 20
+  sprite: {fileID: -2581080033288118992, guid: a8d05ab95063044b5b1eafe89f0325cf, type: 3}
+  cost: 10
