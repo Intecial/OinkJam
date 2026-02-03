@@ -7,6 +7,14 @@ jobs:
   itchio-upload:
     runs-on: ubuntu-latest
     steps:
+      # Download the WebGL build artifact
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Build-WebGL       # must match upload artifact name
+          path: build/WebGL 
+
+      #Setup Butler
       - name: Setup butler
         uses: remarkablegames/setup-butler@v2
 
