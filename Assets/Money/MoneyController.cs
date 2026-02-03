@@ -22,6 +22,7 @@ public class MoneyController : MonoBehaviour
 
     void Start()
     {
+        // Testing Deployment
         OnMoneyUpdated?.Invoke(money);
     }
 
