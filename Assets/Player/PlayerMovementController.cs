@@ -9,6 +9,9 @@ public class PlayerMovementController : MonoBehaviour
     private Transform player;
 
     [SerializeField]
+    private Transform raycast;
+
+    [SerializeField]
     private float moveSpeed = 5f;
     public float rotateSpeed = 720f;
 

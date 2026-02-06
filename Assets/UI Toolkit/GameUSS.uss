@@ -168,3 +168,50 @@
     color: rgb(49, 51, 26);
     transition-duration: 1.1s;
 }
+
+.ingredient-containers {
+    flex-grow: 0;
+    background-color: rgb(70, 71, 50);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 8px;
+    margin-left: 0;
+}
+
+.ingredient-details {
+    flex-grow: 0;
+    border-left-color: rgb(215, 224, 113);
+    border-right-color: rgb(215, 224, 113);
+    border-top-color: rgb(215, 224, 113);
+    border-bottom-color: rgb(215, 224, 113);
+    border-top-width: 4px;
+    padding-top: 8px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+}
+
+
+
+.scroll-view-container {
+    flex-grow: 1;
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+}
+
+.page-container {
+    flex-grow: 1;
+    flex-direction: column;
+    background-color: rgb(49, 51, 26);
+    display: flex;
+}

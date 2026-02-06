@@ -20,6 +20,6 @@ jobs:
 
       # https://itch.io/docs/butler/pushing.html
       - name: Upload to itch.io
-        run: butler push build/WebGL intecial/oinkwip:win
+        run: butler push build/WebGL intecial/wonderful-mixing-extravaganza:win
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}

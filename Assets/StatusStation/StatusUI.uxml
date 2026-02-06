@@ -1,0 +1,34 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GameUSS.uss?fileID=7433441132597879392&amp;guid=c5cb77983e53cc448ab627e705ce391b&amp;type=3#GameUSS"/>
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement class="container bg-secondary" style="flex-grow: 1; justify-content: flex-start; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px; margin-top: 38px; margin-right: 38px; margin-bottom: 38px; margin-left: 38px; border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom-right-radius: 16px; border-bottom-left-radius: 16px;">
+            <ui:VisualElement name="BottleInfo">
+                <ui:VisualElement style="flex-grow: 0; flex-direction: row;">
+                    <ui:Image source="project://database/Assets/Art/Bottles.png?fileID=-2581080033288118992&amp;guid=a8d05ab95063044b5b1eafe89f0325cf&amp;type=3#Bottles_1" style="height: 88px; width: 56px;"/>
+                    <ui:Label text="Label" class="font-size font-style" style="-unity-text-align: middle-center; font-size: 24px;"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="border-left-color: rgb(213, 222, 113); border-right-color: rgb(213, 222, 113); border-top-color: rgb(213, 222, 113); border-bottom-color: rgb(213, 222, 113); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; margin-top: 8px; margin-right: 8px; margin-bottom: 8px; margin-left: 8px;"/>
+            <ui:Label text="Ingredients" class="font-size font-style"/>
+            <ui:ScrollView name="IngredientList" style="flex-grow: 1;">
+                <ui:VisualElement style="flex-grow: 0; flex-direction: row;">
+                    <ui:Image source="project://database/Assets/Art/Bottles.png?fileID=-2581080033288118992&amp;guid=a8d05ab95063044b5b1eafe89f0325cf&amp;type=3#Bottles_1"/>
+                    <ui:Label text="Label" class="font-size font-style" style="-unity-text-align: middle-center; font-size: 24px;"/>
+                </ui:VisualElement>
+            </ui:ScrollView>
+            <ui:VisualElement style="border-left-color: rgb(213, 222, 113); border-right-color: rgb(213, 222, 113); border-top-color: rgb(213, 222, 113); border-bottom-color: rgb(213, 222, 113); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; margin-top: 8px; margin-right: 8px; margin-bottom: 8px; margin-left: 8px;"/>
+            <ui:Label text="Effects" class="font-size font-style"/>
+            <ui:ScrollView name="EffectsList" style="flex-grow: 1;">
+                <ui:VisualElement style="flex-grow: 0; flex-direction: row;">
+                    <ui:Image source="project://database/Assets/Art/Bottles.png?fileID=-2581080033288118992&amp;guid=a8d05ab95063044b5b1eafe89f0325cf&amp;type=3#Bottles_1"/>
+                    <ui:Label text="Label" class="font-size font-style" style="-unity-text-align: middle-center;"/>
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 0; flex-direction: row;">
+                    <ui:Image source="project://database/Assets/Art/Bottles.png?fileID=-2581080033288118992&amp;guid=a8d05ab95063044b5b1eafe89f0325cf&amp;type=3#Bottles_1"/>
+                    <ui:Label text="Label" class="font-size font-style" style="-unity-text-align: middle-center;"/>
+                </ui:VisualElement>
+            </ui:ScrollView>
+            <ui:Button text="Close" name="CloseButton" class="main-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

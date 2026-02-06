@@ -1,0 +1,16 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GameUSS.uss?fileID=7433441132597879392&amp;guid=c5cb77983e53cc448ab627e705ce391b&amp;type=3#GameUSS"/>
+    <ui:VisualElement class="bg-secondary bg-primary" style="flex-grow: 1;">
+        <ui:VisualElement class="container bg-primary" style="flex-grow: 1; margin-top: 4%; margin-right: 4%; margin-bottom: 4%; margin-left: 4%; align-items: center; border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom-right-radius: 16px; border-bottom-left-radius: 16px;">
+            <ui:VisualElement style="flex-grow: 1; justify-content: center; align-self: center; align-items: center; flex-direction: row;">
+                <ui:Image source="project://database/Assets/Art/Mushroom.png?fileID=21300000&amp;guid=06c44db01f1154bb1acd3ab05dda548e&amp;type=3#Mushroom"/>
+                <ui:Label text="Wonderful Mixing&#10;Extravaganza" class="font-size font-style" style="font-size: 110px; -unity-text-align: middle-center; -unity-text-outline-width: 4px; -unity-text-outline-color: rgb(121, 122, 110); -unity-font-style: bold;"/>
+                <ui:Image source="project://database/Assets/Art/Bottles.png?fileID=-7172836395497189917&amp;guid=a8d05ab95063044b5b1eafe89f0325cf&amp;type=3#Bottles_0"/>
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1;">
+                <ui:Button text="Play" name="PlayButton" class="main-button" style="font-size: 65px; padding-top: 24px; padding-right: 32px; padding-bottom: 24px; padding-left: 32px;"/>
+                <ui:Button text="Tutorial" name="PlayButton" class="main-button" style="font-size: 65px; padding-top: 24px; padding-right: 32px; padding-bottom: 24px; padding-left: 32px;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
