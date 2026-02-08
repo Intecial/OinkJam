@@ -3,6 +3,7 @@ name: Build project
 on: [push, pull_request]
 
 jobs:
+
   buildForAllSupportedPlatforms:
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
@@ -10,19 +11,37 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
-          - WebGL # WebGL.
+          - WebGL
+
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           lfs: true
+
+      # ✅ FREE DISK SPACE — MUST RUN EARLY
+      - name: Free Disk Space
+        run: |
+          echo "Disk before cleanup:"
+          df -h
+
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /usr/local/share/boost
+          sudo rm -rf /opt/hostedtoolcache
+
+          docker system prune -af || true
+
+          echo "Disk after cleanup:"
+          df -h
+
       - uses: actions/cache@v3
         with:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
-      - if: matrix.targetPlatform == 'Android'
-        uses: jlumbroso/free-disk-space@v1.3.1
+
       - uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -30,30 +49,26 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+
       - uses: actions/upload-artifact@v4
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
-        env:
-          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-          
+
   itchio-upload:
     needs: buildForAllSupportedPlatforms
     runs-on: ubuntu-latest
     steps:
-      # Download the WebGL build artifact
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: Build-WebGL       # must match upload artifact name
+          name: Build-WebGL
           path: build/WebGL 
 
-      #Setup Butler
       - name: Setup butler
         uses: remarkablegames/setup-butler@v2
 
-      # https://itch.io/docs/butler/pushing.html
       - name: Upload to itch.io
-        run: butler push build/WebGL intecial/oinkwip:win
+        run: butler push build/WebGL intecial/wonderful-mixing-extravaganza:win
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
