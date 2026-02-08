@@ -199,8 +199,6 @@
     padding-left: 12px;
 }
 
-
-
 .scroll-view-container {
     flex-grow: 1;
     padding-top: 24px;
@@ -214,4 +212,21 @@
     flex-direction: column;
     background-color: rgb(49, 51, 26);
     display: flex;
+}
+
+.video-container {
+    flex-grow: 1;
+    flex-direction: row;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
 }

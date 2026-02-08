@@ -1,0 +1,28 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GameUSS.uss?fileID=7433441132597879392&amp;guid=c5cb77983e53cc448ab627e705ce391b&amp;type=3#GameUSS"/>
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="First" class="container bg-secondary" style="flex-grow: 1; padding-top: 2%; padding-right: 6%; padding-bottom: 2%; padding-left: 6%; display: flex;">
+            <ui:VisualElement class="bg-primary video-container">
+                <ui:Image name="PickUpVideo" source="project://database/Assets/Art/TUtorialGifs/PickUp%20Ingredients.renderTexture?fileID=8400000&amp;guid=86c087d6b45674616be56050bd316beb&amp;type=2#PickUp Ingredients"/>
+                <ui:Label text="Pick Up Ingredient from Cabinet" class="font-style font-size" style="-unity-text-align: middle-left; flex-grow: 1; padding-left: 4%; font-size: 60px;"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bg-primary video-container">
+                <ui:Image name="BrewingVideo" source="project://database/Assets/Art/TUtorialGifs/BrewingCauldron.renderTexture?fileID=8400000&amp;guid=0481e62e9222a4f3bb5d0ea8d061fbd1&amp;type=2#BrewingCauldron"/>
+                <ui:Label text="Brew Potion in the Cauldron" class="font-style font-size" style="-unity-text-align: middle-left; flex-grow: 1; padding-left: 4%; font-size: 60px;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Second" class="bg-secondary" style="flex-grow: 1; padding-top: 2%; padding-right: 6%; padding-bottom: 2%; padding-left: 6%; display: none;">
+            <ui:VisualElement class="bg-primary video-container" style="height: 50%;">
+                <ui:Image name="PickUpVideo" source="project://database/Assets/Art/RecipeBook.png?fileID=21300000&amp;guid=beab3aaba7c684806b5f30e391c05276&amp;type=3#RecipeBook" style="flex-grow: 1; width: 50%;"/>
+                <ui:Label text="Recipe book shows all the effects that you can brew" class="font-style font-size" style="-unity-text-align: middle-left; flex-grow: 1; padding-left: 4%; font-size: 60px; white-space: normal; width: 50%;"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="bg-primary video-container" style="height: 50%;">
+                <ui:Image name="PickUpVideo" source="project://database/Assets/Art/DivinationBowl.png?fileID=21300000&amp;guid=7a5d18aa51d09411690a91a17dc59236&amp;type=3#DivinationBowl" style="flex-grow: 1; width: 50%;"/>
+                <ui:Label text="The Divination Bowl shows all the effects you have added" class="font-style font-size" style="-unity-text-align: middle-left; flex-grow: 1; padding-left: 4%; font-size: 60px; white-space: normal; width: 50%;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement class="bg-secondary" style="flex-grow: 1;">
+            <ui:Button text="Next" name="NextButton" class="main-button" style="align-self: flex-end;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

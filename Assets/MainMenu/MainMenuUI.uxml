@@ -8,8 +8,8 @@
                 <ui:Image source="project://database/Assets/Art/Bottles.png?fileID=-7172836395497189917&amp;guid=a8d05ab95063044b5b1eafe89f0325cf&amp;type=3#Bottles_0"/>
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 1;">
-                <ui:Button text="Play" name="PlayButton" class="main-button" style="font-size: 65px; padding-top: 24px; padding-right: 32px; padding-bottom: 24px; padding-left: 32px;"/>
-                <ui:Button text="Tutorial" name="PlayButton" class="main-button" style="font-size: 65px; padding-top: 24px; padding-right: 32px; padding-bottom: 24px; padding-left: 32px;"/>
+                <ui:Button text="Play" name="PlayButton" class="main-button" style="font-size: 65px; padding-top: 24px; padding-right: 32px; padding-bottom: 24px; padding-left: 32px; -unity-font-definition: url(&quot;project://database/Assets/Art/Wizard.ttf?fileID=12800000&amp;guid=9d7ca1550cbc340f7abeef15bc6b1069&amp;type=3#Wizard&quot;);"/>
+                <ui:Button text="Tutorial" name="TutorialButton" class="main-button font-size" style="font-size: 65px; padding-top: 24px; padding-right: 32px; padding-bottom: 24px; padding-left: 32px; -unity-font-definition: url(&quot;project://database/Assets/Art/Wizard.ttf?fileID=12800000&amp;guid=9d7ca1550cbc340f7abeef15bc6b1069&amp;type=3#Wizard&quot;);"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

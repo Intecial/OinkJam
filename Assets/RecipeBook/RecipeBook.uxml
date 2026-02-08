@@ -11,7 +11,7 @@
                     </ui:VisualElement>
                     <ui:VisualElement class="ingredient-details">
                         <ui:Label text="- Refreshing" class="font-size font-style"/>
-                        <ui:Label text="- Cost: 10" class="font-size font-style"/>
+                        <ui:Label text="- Cost: 15" class="font-size font-style"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="IngredientContainer" class="ingredient-containers" style="flex-grow: 0;">
@@ -21,7 +21,7 @@
                     </ui:VisualElement>
                     <ui:VisualElement class="ingredient-details" style="flex-grow: 0;">
                         <ui:Label text="- Growth" class="font-size font-style"/>
-                        <ui:Label text="- Cost: 10" class="font-size font-style"/>
+                        <ui:Label text="- Cost: 20" class="font-size font-style"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="IngredientContainer" class="ingredient-containers" style="flex-grow: 0;">
@@ -31,7 +31,7 @@
                     </ui:VisualElement>
                     <ui:VisualElement class="ingredient-details" style="flex-grow: 0;">
                         <ui:Label text="- Poisonous" class="font-size font-style"/>
-                        <ui:Label text="- Cost: 10" class="font-size font-style"/>
+                        <ui:Label text="- Cost: 20" class="font-size font-style"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="IngredientContainer" class="ingredient-containers" style="flex-grow: 0;">
@@ -41,7 +41,7 @@
                     </ui:VisualElement>
                     <ui:VisualElement class="ingredient-details" style="flex-grow: 0;">
                         <ui:Label text="- Purifying" class="font-size font-style"/>
-                        <ui:Label text="- Cost: 10" class="font-size font-style"/>
+                        <ui:Label text="- Cost: 35" class="font-size font-style"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="IngredientContainer" class="ingredient-containers" style="flex-grow: 0;">

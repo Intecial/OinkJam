@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     void OnEnable()
     {
         
-        startButton = ui.Q<Button>("PlayGameButton");
+        startButton = ui.Q<Button>("PlayButton");
         tutorialButton = ui.Q<Button>("TutorialButton");
         startButton.clicked += OnStartButtonClicked;
         tutorialButton.clicked += OnTutorialButtonClicked;
@@ -25,7 +25,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnStartButtonClicked()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void OnTutorialButtonClicked()
