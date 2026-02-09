@@ -4132,7 +4132,7 @@ MonoBehaviour:
   player: {fileID: 1703732146}
   raycast: {fileID: 15168631}
   moveSpeed: 10
-  rotateSpeed: 900
+  rotateSpeed: 2500
   rb: {fileID: 1703732147}
 --- !u!1 &1654179923
 GameObject:
