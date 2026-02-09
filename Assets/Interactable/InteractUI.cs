@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 public class InteractUI : MonoBehaviour
 {
     private VisualElement ui;
+    private IStation station;
 
     void Awake()
     {
@@ -29,10 +30,21 @@ public class InteractUI : MonoBehaviour
     {
         if(interactable)
         {
+            if(interactable.gameObject.TryGetComponent<IStation>(out var station))
+            {
+                station.Highlight();
+                this.station = station;
+            }
             Show();
         }
         else
         {
+            if(station != null)
+            {
+                station.RemoveHighlight();
+                station = null;
+                
+            }
             Hide();
         }
     }

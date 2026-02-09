@@ -85,5 +85,18 @@ public class Bottle : MonoBehaviour, IPickUp
         rb.simulated = false;
         box.enabled = false;
     }
+
+    public void DisablePhysics()
+    {
+        rb.simulated = false;
+        box.enabled = false;
+        
+    }
+
+    public void EnablePhysics()
+    {
+        rb.simulated = true;
+        box.enabled = true;
+    }
     
 }

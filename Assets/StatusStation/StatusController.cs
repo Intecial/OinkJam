@@ -4,6 +4,15 @@ using UnityEngine;
 public class StatusController : MonoBehaviour, IStation
 {
     public static event Action<BottleModel> OnStatusInteracted;
+
+    [SerializeField]
+    private GameObject highlight;
+
+    public void Highlight()
+    {
+        highlight.SetActive(true);
+    }
+
     public void InteractStation(PlayerHandController playerHandController)
     {
         if (playerHandController.isHoldingItem())
@@ -13,5 +22,10 @@ public class StatusController : MonoBehaviour, IStation
             OnStatusInteracted.Invoke(bottleModel);
         }
 
+    }
+
+    public void RemoveHighlight()
+    {
+        highlight.SetActive(false);
     }
 }

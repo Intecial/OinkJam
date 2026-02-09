@@ -9,6 +9,9 @@ public class CustomerStation : MonoBehaviour, IStation
     [SerializeField]
     private SpriteRenderer CustomerSprite;
 
+    [SerializeField]
+    private GameObject highlight;
+
     private AudioSource source;
 
     [SerializeField]
@@ -76,4 +79,13 @@ public class CustomerStation : MonoBehaviour, IStation
         CustomerSprite.enabled = false;
     }
 
+    public void Highlight()
+    {
+        highlight.SetActive(true);
+    }
+
+    public void RemoveHighlight()
+    {
+        highlight.SetActive(false);
+    }
 }

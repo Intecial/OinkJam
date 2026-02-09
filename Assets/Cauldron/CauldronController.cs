@@ -11,6 +11,9 @@ public class CauldronController : MonoBehaviour, IStation
     private CauldronModel cauldronModel;
 
     [SerializeField]
+    private GameObject highlight;
+
+    [SerializeField]
     private AudioSource source;
 
     [SerializeField]
@@ -20,7 +23,7 @@ public class CauldronController : MonoBehaviour, IStation
     private AudioClip cauldronCompleteDing;
 
     [SerializeField]
-    private SpriteRenderer bottleRenderer;
+    private GameObject bottleGo;
 
     [SerializeField]
     private SpriteRenderer ingredientRenderer;
@@ -61,12 +64,16 @@ public class CauldronController : MonoBehaviour, IStation
         cauldronModel.OnBrewingComplete -= PlayCompleteDing;
     }
 
-    private void OnBottleChange() {
+    private void OnBottleChange(BottleModel bottleModel) {
         if(cauldronModel.bottle != null){
-            bottleRenderer.sprite = cauldronModel.bottle.Config.sprite;
+            GameObject bottle = Instantiate(bottlePrefab, bottleGo.transform.position, Quaternion.identity, bottleGo.transform);
+            bottle.GetComponent<Bottle>().DisablePhysics();
+            bottle.GetComponent<Bottle>().SetBottleModel(bottleModel, bottleModel.bottleConfig);
         }
         else {
-            bottleRenderer.sprite = null;
+            foreach (Transform child in bottleGo.transform) {
+                Destroy(child.gameObject);
+            }
         }
     }
 
@@ -111,8 +118,12 @@ public class CauldronController : MonoBehaviour, IStation
                 // bottleRenderer.sprite = bottleModel.GetSprite();
                 // ingredientRenderer.sprite = bottleModel.GetSprite();
             } else
-            {
-                StartCoroutine(cauldronModel.MixIngredients());
+            {   
+                if(cauldronModel.bottle != null && cauldronModel.ingredient != null)
+                {
+                    
+                    StartCoroutine(cauldronModel.MixIngredients());
+                }
             }
         }
     }
@@ -132,15 +143,16 @@ public class CauldronController : MonoBehaviour, IStation
         source.PlayOneShot(brewingClip);
     }
 
-    private void PlayPickUp()
+    private void PlayPickUp(BottleModel bottleModel)
     {
         source.clip = pickUpBottle;
         source.time = 0.55f;
         source.Play();
     }
 
-    private void PlayCompleteDing()
+    private void PlayCompleteDing(BottleModel bottleModel)
     {
+        bottleGo.GetComponentInChildren<Bottle>().SetBottleModel(bottleModel, bottleModel.bottleConfig);
         source.PlayOneShot(cauldronCompleteDing);
     }
     
@@ -149,5 +161,15 @@ public class CauldronController : MonoBehaviour, IStation
         source.clip = pickUpIngredient;
         source.time = 0.18f;
         source.Play();
+    }
+
+    public void Highlight()
+    {
+        highlight.SetActive(true);
+    }
+
+    public void RemoveHighlight()
+    {
+        highlight.SetActive(false);
     }
 }

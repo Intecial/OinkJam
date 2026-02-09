@@ -6,6 +6,10 @@ public class SupplierController : MonoBehaviour, IStation{
     [SerializeField] private GameObject bottlePrefab;
     [SerializeField] private GameObject ingredientPrefab;
 
+
+    [SerializeField]
+    private GameObject highlight;
+
      private AudioSource source;
 
     [SerializeField] private AudioClip pickUpBottle;
@@ -55,5 +59,15 @@ public class SupplierController : MonoBehaviour, IStation{
             
             }
         }
+    }
+
+    public void Highlight()
+    {
+        highlight.SetActive(true);
+    }
+
+    public void RemoveHighlight()
+    {
+        highlight.SetActive(false);
     }
 }

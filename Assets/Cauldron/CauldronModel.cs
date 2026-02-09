@@ -5,15 +5,15 @@ using UnityEngine;
 public class CauldronModel
 {
     public event Action<int> OnTimerTick;
-    public  event Action OnBottleChange;
+    public  event Action<BottleModel> OnBottleChange;
 
     public event Action OnBrewing;
 
-    public event Action OnBrewingComplete;
+    public event Action<BottleModel> OnBrewingComplete;
 
     public  event Action OnIngredientChange;
 
-    public event Action OnBottlePickUp;
+    public event Action<BottleModel> OnBottlePickUp;
 
     public BottleModel bottle { get; private set; }
     public IngredientModel ingredient { get; private set; }
@@ -25,7 +25,7 @@ public class CauldronModel
 
     public BottleModel TakeBottle()
     {
-        OnBottlePickUp.Invoke();
+        OnBottlePickUp.Invoke(bottle);
         BottleModel bottleModelCopy = new BottleModel(bottle);
         ClearBottle();
         return bottleModelCopy;
@@ -33,7 +33,7 @@ public class CauldronModel
 
     private void ClearBottle(){
         this.bottle = null;
-        OnBottleChange.Invoke();
+        OnBottleChange.Invoke(bottle);
     }
 
     private void ClearIngredient(){
@@ -57,7 +57,7 @@ public class CauldronModel
             OnTimerTick.Invoke(time);
             yield return new WaitForSeconds(1);
         }
-        OnBrewingComplete.Invoke();
+        OnBrewingComplete.Invoke(bottle);
         OnTimerTick.Invoke(0);
         isOccupied = false;
     }
@@ -92,7 +92,7 @@ public class CauldronModel
             return false;
         }
         this.bottle = bottle; 
-        OnBottleChange.Invoke();
+        OnBottleChange.Invoke(bottle);
         return true;
     }
 }
