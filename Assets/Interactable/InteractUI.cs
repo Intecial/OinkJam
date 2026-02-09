@@ -10,12 +10,22 @@ public class InteractUI : MonoBehaviour
         ui = GetComponent<UIDocument>().rootVisualElement;
     }
 
+    void OnEnable()
+    {
+        RaycastHandler.OnInteractProximity += CheckInteractable;
+    }
+
+    void OnDestroy()
+    {
+        RaycastHandler.OnInteractProximity -= CheckInteractable;
+    }
+
     void Start()
     {
         Hide();
     }
 
-    private void CheckInteractable(Interactable interactable)
+    private void CheckInteractable(Collider2D interactable)
     {
         if(interactable)
         {

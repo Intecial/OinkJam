@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RaycastHandler : MonoBehaviour
 {
-    
+    public static event Action<Collider2D> OnInteractProximity;
     [SerializeField] private float reachDistance = 2f;
     [SerializeField] private Transform player;
     [SerializeField] private LayerMask interactableMask;
@@ -23,6 +23,8 @@ public class RaycastHandler : MonoBehaviour
 
     void Update()
     {
+        InitializeRaycast();
+        OnInteractProximity?.Invoke(hit.collider);
         
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
